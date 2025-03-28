@@ -418,7 +418,6 @@ console.log(searchByTitle("avengers"));
 function searchAndDivide(string) {
   const match = [];
   const unmatch = [];
-
   movies.forEach((movies) => {
     const name = movies.Title.toLowerCase();
     if (name.includes(string.toLowerCase())) {
@@ -523,6 +522,12 @@ trClass();
   ***
 
 */
+function halfTree(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log("*".repeat(i));
+  }
+}
+halfTree(5);
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -535,9 +540,29 @@ trClass();
   *****
 
 */
-
+function tree(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log(" ".repeat(i / 2), "*".repeat(i));
+  }
+}
+tree(3);
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
-
+function isItPrime(n) {
+  if (n <= 2) {
+    return true;
+  } // un numero è primo quando è divisibile solamente per 1 e per se stesso, quindi faremo iniziare il controllo dal numero 3, sarebbe inutile controllare 1 e 2.
+  for (let i = 3; i <= Math.sqrt(n); i++) {
+    // utilizzo un for che controlla se il numero è divisibile da 3 fino alla radice quadrata del numero grazie a math.sqrt
+    if (n % i === 0) {
+      // se il modulo di i === 0 ci darà valore positivo, allora il numero risulterà divisibile per una cifra diversa da 1 o se stesso.
+      return false;
+    } else {
+      return true;
+    }
+  }
+}
+console.log(isItPrime(30));
+console.log(isItPrime(31));
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
